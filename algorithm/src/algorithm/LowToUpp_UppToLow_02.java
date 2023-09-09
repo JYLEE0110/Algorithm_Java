@@ -27,7 +27,7 @@ public class LowToUpp_UppToLow_02 {
 		
 		for(char result : str.toCharArray()) {
 			// 삼항연산자로 문자 1개씩 비교하여 newStr에 추가하여 반환한다.
-			result = result == Character.toLowerCase(result) ? Character.toUpperCase(result) : Character.toLowerCase(result);
+			result = Character.isLowerCase(result) ? Character.toUpperCase(result) : Character.toLowerCase(result);
 			newStr += result;
 		}
 		
