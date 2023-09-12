@@ -56,13 +56,14 @@ public class The_Logest_Word_03 {
 			}
 			// 처음 공백 제거 후 새로운 문장을 만들어 내서 계속해서 반복
 			word = word.substring(pos + 1);
-			
-			// 마지막 문장은 공백이없으므로 if문으로 단어의 길이로 비교
-			if (word.length() > m) {
-				result = word;
-			}
 
 		}
+
+		// 마지막 문장은 공백이없으므로 if문으로 단어의 길이로 비교
+		if (word.length() > m) {
+			result = word;
+		}
+
 		return result;
 
 	}
