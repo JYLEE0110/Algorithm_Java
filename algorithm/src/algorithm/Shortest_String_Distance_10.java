@@ -23,7 +23,7 @@ public class Shortest_String_Distance_10 {
 
 	public ArrayList<Integer> solution(String str, char ch) {
 		
-		ArrayList answer = new ArrayList<Integer>();
+		ArrayList<Integer> answer = new ArrayList<>();
 		int n = 1000;
 		
 		// 0부터 주어진 str 길이 까지 순회 
@@ -45,7 +45,7 @@ public class Shortest_String_Distance_10 {
 				n = 0;
 			}else {
 				n++;
-				if((int)answer.get(i) > n) {
+				if(answer.get(i) > n) {
 					answer.set(i, n);
 				}
 			}
