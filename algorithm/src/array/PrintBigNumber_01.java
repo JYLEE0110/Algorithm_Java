@@ -1,41 +1,44 @@
 package array;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PrintBigNumber_01 {
 
-	public int[] solution(int[] num) {
+	public ArrayList<Integer> solution(int arr[]) {
 		
-		for(int i = 0; i<num.length-1; i++) {
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		list.add(arr[0]);
+		
+		for(int i = 1; i< arr.length; i++) {
 			
-			if(num[i] > num[i+1]) {
-				System.out.print(num[i]);
-			}else {
-				System.out.print(num[i+1]);
+			if(arr[i-1] < arr[i]) {
+				
+				list.add(arr[i]);
+				
 			}
 			
 		}
-		
-		return null;
+		return list;
 		
 	}
 	
 	public static void main(String[] args) {
-
-		PrintBigNumber_01 t = new PrintBigNumber_01();
+		
+		PrintBigNumber_01 result = new PrintBigNumber_01();
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		int[] num = new int[n];
+		int num = sc.nextInt();
+		int arr[] = new int[num];
 		
-		for(int i = 0; i<n; i++) {
-			
-			num[i]= sc.nextInt();
-			
+		for(int i = 0; i < num; i++) {
+			arr[i] = sc.nextInt();
 		}
-		for(int result : t.solution(num)) {
-			System.out.print(result);
+
+		for(int x : result.solution(arr)) {
+			System.out.print(x + " ");
 		}
 		
 	}
