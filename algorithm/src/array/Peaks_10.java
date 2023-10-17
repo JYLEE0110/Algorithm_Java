@@ -26,57 +26,59 @@ import java.util.Scanner;
 public class Peaks_10 {
 
 	static int solution(int n, int[][] arr) {
+
+		int[] dx = {-1,0,1,0};
+		int[] dy = {0,1,0,-1};
 		
 		int cnt = 0;
 		
-		for(int i=1; i <= n; i++) {
+		for(int i = 0; i<n; i++) {
 			
-			for(int j = 1; j <= n; j++) {
+			for(int j = 0; j<n; j++) {
+				
+				boolean isPeak = true;
 
-				int target = arr[i][j];
-				
-				// target과 상 하 좌 우 중 큰 값을 찾는 삼항연산자.
-				int up = target > arr[i-1][j] ? target : arr[i-1][j];
-				int down = target > arr[i+1][j] ? target : arr[i+1][j];
-				int left = target > arr[i][j-1] ? target : arr[i][j-1];
-				int right = target > arr[i][j+1] ? target : arr[i][j+1];
-				
-				// 상 하 좌 우 모두 target일 경우 cnt 값 증가
-//				if(target == up && target ==down && target == left && target == right) {
-//					cnt++;
-//				}
-				if(target > arr[i-1][j] && target > arr[i+1][j] && target > arr[i][j-1] && target > arr[i][j+1]) {
+				for(int z = 0; z<4; z++) {
+					
+					int nx = i + dx[z];
+					int ny = j + dy[z];
+					
+					// nx가 0이상 n미만 / ny가 0이상  n미만 일때 검사 => 가장자리는 비교 안하고 다음 z 비교
+					if( (nx>=0 && nx<n) && (ny>=0 && ny < n) && (arr[nx][ny] >= arr[i][j])) {
+						isPeak = false;
+						break;
+					}
+				}
+				if(isPeak) {
 					cnt++;
 				}
 				
 			}
+			
 		}
 		
 		return cnt;
-		
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		int n = sc.nextInt();
-		
-		int[][] arr = new int[n+2][n+2];
-		
-		for(int i = 1; i <= n; i++) {
-			
-			for(int j = 1; j <= n; j++) {
-				
+
+		int[][] arr = new int[n][n];
+
+		for (int i = 0; i < n; i++) {
+
+			for (int j = 0; j < n; j++) {
+
 				int num = sc.nextInt();
-				
+
 				arr[i][j] = num;
-				
 			}
-			
+
 		}
-		
-		System.out.println(Peaks_10.solution(n,arr));
+		System.out.println(Peaks_10.solution(n, arr));
 
 	}
 
