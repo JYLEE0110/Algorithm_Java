@@ -9,20 +9,22 @@ public class Mentoring_12 {
 
 		int result = 0;
 
-		// 학생 수 n * n 만큼 경우 의 수 를 체크해야한다.
+		// 학생 수 n * n 만큼 경우 의 수 를 체크해야한다. => 경우의 수
+		// i는 멘토, j는 멘티
 		for (int i = 1; i <= n; i++) {
-
+			
 			for (int j = 1; j <= n; j++) {
 				
 				int cnt = 0;
-				
+				// 주어진 배열에서 i, j 의 등수를 체크 하기 위한 2주 for문
 				for (int x = 0; x < m; x++) {
 
 					int pi = 0;
 					int pj = 0;
 
 					for (int y = 0; y < n; y++) {
-
+						
+						// i와 j의 등수를 구함
 						if (i == arr[x][y]) {
 							pi = y;
 						}
@@ -30,6 +32,7 @@ public class Mentoring_12 {
 							pj = y;
 						}
 					}
+					// i의 등수 보다j의 등수가 클 경우(i = 3등 j = 4등 일시 4가 더 큼)
 					if (pi < pj) {
 						cnt++;
 					}

@@ -28,7 +28,7 @@ public class TemporaryLeader_11 {
 					
 				}
 			}
-			// max와 cnt가 같을 때 앞에 학생이 반장이므로 max가 cnt 미만
+			// max와 cnt가 같을 때는 앞에 학생이 반장이므로 max가 cnt 미만
 			if(max < cnt) {
 				
 				max = cnt;
