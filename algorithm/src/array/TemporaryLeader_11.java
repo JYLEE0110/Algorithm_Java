@@ -7,7 +7,7 @@ public class TemporaryLeader_11 {
 
 	static int solution(int n, int[][] arr) {
 		
-		int max = 0;
+		int max = Integer.MIN_VALUE;
 		int result = 1;
 		
 		// 처음 for문의 i는 count할 학생 (행)
