@@ -27,14 +27,14 @@ import java.util.Scanner;
 
 public class SumOfConsecutiveNaturalNumber {
 	
-	static int solution(int n, int[] arr) {
+	static int solution(int n, int[] arr, int m) {
 		
 		int lt = 0;
 		int rt = 0;
 		int sum = 0;
 		int cnt = 0;
 		
-		for(;rt < n-1; rt++) {
+		for(;rt < m; rt++) {
 			
 			sum += arr[rt];
 			
@@ -58,14 +58,17 @@ public class SumOfConsecutiveNaturalNumber {
 		int n = sc.nextInt();
 		int[] arr = new int[n];
 		
+		// 주어진 n에서 n/2+1 까지만 보면 된다.
+		// n이 15일 시 8까지 보본다. => 9부터는 15를 초과한다.
+		int m = n/2 + 1;
 		
-		for(int i = 0; i < n; i++) {
+		for(int i = 0; i < m; i++) {
 			
 			arr[i] = i+1;
 			
 		}
 		
-		System.out.println(SumOfConsecutiveNaturalNumber.solution(n, arr));
+		System.out.println(SumOfConsecutiveNaturalNumber.solution(n, arr, m));
 		
 	}
 
